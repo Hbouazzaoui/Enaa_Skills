@@ -1,21 +1,18 @@
 package com.example.enaa_skills.Dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
-
 @AllArgsConstructor
 @NoArgsConstructor
-public class CompetenceDto {
+public class SousCompetenceDto {
     private Long id;
+
     private String nom;
     private String description;
-
-    private List<SousCompetenceDto> sousCompetences;
 
     public Long getId() {
         return id;
@@ -39,13 +36,5 @@ public class CompetenceDto {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<SousCompetenceDto> getSousCompetences() {
-        return sousCompetences;
-    }
-
-    public void setSousCompetences(List<SousCompetenceDto> sousCompetences) {
-        this.sousCompetences = sousCompetences;
     }
 }
