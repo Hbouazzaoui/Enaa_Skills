@@ -1,30 +1,27 @@
 package com.example.enaa_skills.Entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
+
+
+
 @Entity
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Competence {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String nom;
+    private String code;
+    private String titre;
     private String description;
-
-    @OneToMany(mappedBy = "competence", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "competence", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<SousCompetence> sousCompetences;
 
     public Long getId() {
@@ -35,12 +32,20 @@ public class Competence {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getCode() {
+        return code;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 
     public String getDescription() {

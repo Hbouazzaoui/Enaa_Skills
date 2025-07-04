@@ -12,10 +12,13 @@ import java.util.List;
 @NoArgsConstructor
 public class CompetenceDto {
     private Long id;
-    private String nom;
+    private String code;
+    private String titre;
     private String description;
 
-    private List<SousCompetenceDto> sousCompetences;
+
+    private List<SousCompetenceDTO> sousCompetences; // Add this field
+
 
     public Long getId() {
         return id;
@@ -25,12 +28,20 @@ public class CompetenceDto {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getCode() {
+        return code;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 
     public String getDescription() {
@@ -41,11 +52,11 @@ public class CompetenceDto {
         this.description = description;
     }
 
-    public List<SousCompetenceDto> getSousCompetences() {
+    public List<SousCompetenceDTO> getSousCompetences() {
         return sousCompetences;
     }
 
-    public void setSousCompetences(List<SousCompetenceDto> sousCompetences) {
+    public void setSousCompetences(List<SousCompetenceDTO> sousCompetences) {
         this.sousCompetences = sousCompetences;
     }
 }

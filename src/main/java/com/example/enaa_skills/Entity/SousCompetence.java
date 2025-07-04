@@ -1,5 +1,7 @@
 package com.example.enaa_skills.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +19,15 @@ public class SousCompetence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom;
-    private String description;
+    private String titre;
+    private Boolean validation;
 
-    @ManyToOne
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "competence_id", nullable = false)
     private Competence competence;
+
 
     public Long getId() {
         return id;
@@ -31,20 +37,20 @@ public class SousCompetence {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getTitre() {
+        return titre;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 
-    public String getDescription() {
-        return description;
+    public Boolean getValidation() {
+        return validation;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setValidation(Boolean validation) {
+        this.validation = validation;
     }
 
     public Competence getCompetence() {
